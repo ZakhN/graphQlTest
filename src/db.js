@@ -7,6 +7,9 @@ const db = {
   couriers: [
     { _id: '1', firstName: 'Nickolay', lastName: 'Zakh', locations: ['2'] },
   ],
+  users: [
+    { _id: '1', email: 'user@mail.ru' },
+  ]
 };
 
 export default db;
