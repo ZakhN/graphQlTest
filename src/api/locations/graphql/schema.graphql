@@ -1,0 +1,19 @@
+#import Query.* from './queries/schema.graphql'
+#import Mutation.* from './mutations/schema.graphql'
+
+type Location {
+  _id: ID
+  name(uppercase: Boolean): String
+  status: LocationStatus
+  coordinates: Coordinates
+}
+
+type Coordinates {
+  lat: Float
+  lng: Float
+}
+
+enum LocationStatus {
+  FULL
+  EMPTY
+}

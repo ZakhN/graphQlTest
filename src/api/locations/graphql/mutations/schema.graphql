@@ -1,0 +1,11 @@
+type Mutation {
+  createLocation(
+    name: String!
+    coordinates: CoordinatesInput
+  ): Location
+}
+
+input CoordinatesInput {
+  lat: Float
+  lng: Float
+}

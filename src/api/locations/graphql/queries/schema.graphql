@@ -1,0 +1,4 @@
+type Query {
+  locations: [Location]
+  location(_id: ID!): Location
+}
