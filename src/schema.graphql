@@ -1,3 +1,4 @@
 #import * from './api/locations/graphql/schema.graphql'
 #import * from './api/couriers/graphql/schema.graphql'#import * from './api/couriers/graphql/schema.graphql'
+#import * from './api/couriers/graphql/schema.graphql'
 #import * from './api/users/graphql/schema.graphql'
