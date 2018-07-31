@@ -1,0 +1,9 @@
+#import Mutation.* from './mutations/schema.graphql'
+
+
+
+type LoginResponse {
+  token: Float
+  expiresIn: String
+  userId: ID
+  }
