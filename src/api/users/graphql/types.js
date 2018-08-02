@@ -1,7 +1,5 @@
 const types = {
-  User: {
-    email: root => `${root.name}`,
-  },
+  User: {},
 };
 
 export default types;

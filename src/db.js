@@ -16,7 +16,9 @@ const db = {
     },
   ],
   users: [
-    { _id: '1', email: 'user@mail.ru' },
+    {
+      _id: '1', email: 'user@mail.ru', password: '1234', tokens: [],
+    },
   ],
 };
 
