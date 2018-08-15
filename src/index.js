@@ -3,6 +3,7 @@ import { ApolloServer } from 'apollo-server';
 import { importSchema } from 'graphql-import';
 import db from './db';
 import resolvers from './resolvers';
+import models from './models';
 
 const typeDefs = importSchema(path.join(__dirname, 'schema.graphql'));
 
@@ -13,7 +14,7 @@ const server = new ApolloServer({
     const { authorization } = req.headers;
     const user = db.users.find(u => u.tokens.some(({ token }) => token === authorization));
     // console.log(req);
-    return { user, db }; 
+    return { user, db, models };
   },
 });
 
