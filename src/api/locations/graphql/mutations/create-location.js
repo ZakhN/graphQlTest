@@ -1,16 +1,15 @@
-const createLocation = (root, args, context) => {
-  const db = context.db.locations;
 
+const createLocation = async (root, { coordinates, name }, context) => {
+  console.log(coordinates);
   const location = {
-    _id: parseInt(db[db.length - 1]._id, 10) + 1,
-    name: args.name,
-    coordinates: args.coordinates,
+    name,
+    coordinates,
     status: 'EMPTY',
   };
 
-  db.push(location);
+  const locationMongo = await context.models.Locations.create(location);
 
-  return location;
+  return locationMongo;
 };
 
 export default createLocation;
