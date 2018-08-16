@@ -2,11 +2,12 @@
 type Mutation {
   createUser(
     email: String!
-    password: Float! ): LoginResponse
+    password: Float! ): User
 
   loginWithPassword(
     email: String!
     password: Float!
+    _id: ID
   ): LoginResponse
 }
 
