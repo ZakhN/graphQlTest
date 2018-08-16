@@ -1,0 +1,7 @@
+type Mutation {
+  createCourier(
+    firstName: String!
+    lastName: String!
+    locationIds: [ID]
+  ): Courier
+}
