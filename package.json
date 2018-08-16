@@ -16,7 +16,9 @@
     "graphql-import": "^0.6.0",
     "jsonwebtoken": "^8.3.0",
     "lodash.merge": "^4.6.1",
-    "mongoose": "^5.2.8"
+    "mongodb-autoincrement": "^1.0.1",
+    "mongoose": "^5.2.8",
+    "mongoose-auto-increment": "^5.0.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
