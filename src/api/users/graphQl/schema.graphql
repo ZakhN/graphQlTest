@@ -1,10 +1,15 @@
 #import Mutation.* from './mutations/schema.graphql'
 #import Query.* from './queries/schema.graphql'
 
-
+  type User {
+  _id: ID
+  email: String
+  password: String
+}
 
 type LoginResponse {
   token: String
   expiresIn: String
   userId: ID
   }
+
