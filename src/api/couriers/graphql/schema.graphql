@@ -1,4 +1,5 @@
 #import Query.* from './queries/schema.graphql'
+#import Mutation.* from './mutations/schema.graphql'
 
 type Courier {
   _id: ID
