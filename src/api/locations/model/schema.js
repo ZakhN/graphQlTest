@@ -1,11 +1,19 @@
+const autoIncrement = require('mongoose-auto-increment');
+
 const mongoose = require('../../../core/connection');
+
+
+const mongooseCon = mongoose.createConnection('mongodb://localhost:27017/test', { useNewUrlParser: true });
+autoIncrement.initialize(mongooseCon);
 
 const locationSchema = new mongoose.Schema({
   name: String,
-  lat: Boolean,
-  lng: Boolean,
+  coordinates: Object,
+  status: String,
 });
 
-const locationsModel = mongoose.model('locations', locationSchema);
+locationSchema.plugin(autoIncrement.plugin, 'locations');
 
-module.exports = locationsModel;
+const LocationsModel = mongoose.model('locations', locationSchema);
+
+export default LocationsModel;
