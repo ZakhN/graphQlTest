@@ -3,7 +3,6 @@ const createCourier = async (root, { firstName, lastName, locationIds }, context
     firstName,
     lastName,
     locationIds,
-    status: 'EMPTY',
   };
 
   const courier = await context.models.Couriers.create(doc);
