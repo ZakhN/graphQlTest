@@ -1,13 +1,13 @@
-const autoIncrement = require('mongoose-auto-increment');
-const mongoose = require('../../../core/connection');
+import { autoIncrement, mongoose } from '../../../core/connections/mongo';
 
-const mongooseCon = mongoose.createConnection('mongodb://localhost:27017/test', { useNewUrlParser: true });
-autoIncrement.initialize(mongooseCon);
-
+const tokenSchema = new mongoose.Schema({
+  token: String,
+});
 
 const usersSchema = new mongoose.Schema({
   email: String,
   password: Object,
+  tokens: [tokenSchema],
 });
 
 const usersModel = mongoose.model('users', usersSchema);

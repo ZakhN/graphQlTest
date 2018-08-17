@@ -1,11 +1,10 @@
 const jwt = require('jsonwebtoken');
 
 const createUser = async (root, { email, password }, context) => {
+  const existingUser = await context.models.Users.findOne({ email });
+  if (existingUser) throw new Error('User with this email is exist');
+
   const token = jwt.sign({ data: email }, 'shhhhh', { expiresIn: '1h' });
-
-  // const isExsist = db.filter(u => u.email === email);
-
-  // if (isExsist.length !== 0) throw new Error('User with this email is exist');
 
   const doc = {
     email,

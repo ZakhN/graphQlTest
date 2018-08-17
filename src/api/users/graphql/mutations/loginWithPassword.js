@@ -1,13 +1,12 @@
 const jwt = require('jsonwebtoken');
 
-const loginWithPassword = (root, { password, email }, context) => {
-  const db = context.db.users;
-
-  const token = jwt.sign({ data: email }, 'shhhhh', { expiresIn: '1h' });
-
-  const user = db.filter(u => u.email === email);
+const loginWithPassword = async (root, { password, email }, context) => {
+  const user = await context.models.Users.findOne({ email });
+  if (!user) console.log('User not found');
   if (!user) throw new Error('User not found');
   if (user.password !== password) throw new Error('Incorrect password');
+
+  const token = jwt.sign({ data: email }, 'shhhhh', { expiresIn: '1h' });
 
   const loginResponse = {
     userId: user._id,
