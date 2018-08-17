@@ -1,3 +1,3 @@
-const locations = (root, args, context) => context.db.locations;
+const locations = (root, args, context) => context.models.Locations.find();
 
 export default locations;

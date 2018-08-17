@@ -1,10 +1,4 @@
-const autoIncrement = require('mongoose-auto-increment');
-
-const mongoose = require('../../../core/connection');
-
-
-const mongooseCon = mongoose.createConnection('mongodb://localhost:27017/test', { useNewUrlParser: true });
-autoIncrement.initialize(mongooseCon);
+import { autoIncrement, mongoose } from '../../../core/connections/mongo';
 
 const locationSchema = new mongoose.Schema({
   name: String,
