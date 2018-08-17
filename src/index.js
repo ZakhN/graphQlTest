@@ -1,7 +1,7 @@
 import path from 'path';
 import { ApolloServer } from 'apollo-server';
 import { importSchema } from 'graphql-import';
-import db from './db';
+
 import resolvers from './resolvers';
 import models from './models';
 
@@ -12,12 +12,11 @@ const server = new ApolloServer({
   resolvers,
   context: ({ req }) => {
     const { authorization } = req.headers;
-    const user = db.users.find(u => u.tokens.some(({ token }) => token === authorization));
-    // console.log(req);
-    return { user, db, models };
+
+    const user = models.Users.findOne({ 'tokens.token': authorization });
+    return { user, models };
   },
 });
-
 
 server.listen().then(({ url }) => {
   console.log(`🚀  Server ready at ${url}`);
